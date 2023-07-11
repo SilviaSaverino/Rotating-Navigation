@@ -15,15 +15,20 @@ body {
 .container {
     background-color: #fafafa;
     transform-origin: top left;
-    transition: transform 0.5 linear;
+    transition: transform 1s linear;
     width: 100vw;
     min-height: 100vh;
     padding: 60px;
 }
 
-/* .container.show-nav {
+.container.show-nav {
     transform: rotate(-20deg);
-} */
+}
+
+/*style the circle when the container has the show-nav class*/
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
 
 .circle-container {
     position: fixed;
@@ -38,7 +43,7 @@ body {
     border-radius: 50%;
     border: 2px solid rgb(239, 45, 204);
     position: relative;
-    transition: transform 0.5 linear;
+    transition: transform 1.3s linear;
 }
 
 .circle button {
@@ -64,9 +69,59 @@ body {
 .circle button#close {
     top: 60%;
     transform: rotate(90deg);
-    transform-origin: top left;
+    transform-origin: top left; 
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.5s;
+}
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none; /* gets rid of the bullet points*/
+    padding-left: 30px;
+}
+
+nav ul li {
+    color: #fafafa;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+}
+
+/*targeting below the first li after the first li */
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+/*targeting below the second li after the first li */
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
 }
 
 .content img {
     max-width: 100%;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.5;  /* add spaces between lines */
 }
